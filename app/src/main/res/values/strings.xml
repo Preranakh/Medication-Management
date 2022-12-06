@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Notification App</string>
+    <string name="add_from_photo">Add From Photo</string>
+    <string name="add_manually">Add Manually</string>
+    <string name="medication_management">Medication Management</string>
+    <string name="to_get_started_add_your_medcine_information_through_a_photo_or_type_the_information_manually">To get started, add your medcine information through a photo, or type the information manually</string>
+    <string name="banner">banner</string>
+    <string name="todo">TODO</string>
 </resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="240dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center_horizontal"
+        android:text="@string/medication_management"
+        app:autoSizeTextType="uniform" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="498dp"
+        android:layout_height="199dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@mipmap/banner_foreground"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="336dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"
+        android:text="@string/to_get_started_add_your_medcine_information_through_a_photo_or_type_the_information_manually"
+        app:autoSizeTextType="uniform" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="259dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#AFD5FA"
+        android:text="@string/add_from_photo" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="259dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#AFD5FA"
+        android:text="@string/add_manually" />
+
+</LinearLayout>
