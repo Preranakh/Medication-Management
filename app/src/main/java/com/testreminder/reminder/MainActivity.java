@@ -1,4 +1,4 @@
-package com.codingwithsara.reminder;
+package com.testreminder.reminder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,12 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.codingwithsara.notificationapp.R;
+import com.testreminder.notificationapp.R;
 
 import java.util.Calendar;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Set onClick Listener
         findViewById(R.id.setBtn).setOnClickListener(this);
         findViewById(R.id.cancelBtn).setOnClickListener(this);
+        findViewById(R.id.BackButton).setOnClickListener(this);
     }
 
     @Override
@@ -69,7 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 alarmManager.cancel(pendingIntent);
                 Toast.makeText(this, "Canceled.", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.BackButton:
+                goToMedList(view);
+                break;
         }
+    }
 
+    public void goToMedList(View view) {
+        Intent intent1 = new Intent(this, MedList.class);
+        startActivity(intent1);
     }
 }
