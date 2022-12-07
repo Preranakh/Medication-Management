@@ -1,4 +1,4 @@
-package com.codingwithsara.reminder;
+package com.testreminder.reminder;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
