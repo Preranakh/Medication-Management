@@ -1,5 +1,7 @@
 To keep track on different kinds of medical prescriptions, it is important that some kind of system is used to manage all of them so that no dosages will be missed which could cause medical complications. This is especially true among the elderly. Thus creating such a system that could automate this process could easily benefit them as well as those who are involved such as the caretakers. This system should also be useful to any kind of user. 
 The project involves creating an app that helps a user to track the dosages taken per day of a particular medicine. Prescriptions can also be added manually. This app lets caregivers get real-time updates on their patients' medications and symptoms.
+
+Medication Management is a medicine reminder app designed for people who frequently forget to take their medications. It allows you to keep track of and remotely assist your loved ones who find it difficult to utilize such an app with their reminders.
 Some of the Features are:
 - Track medications for multiple people.
 - Get notifications for late/missed medications.
