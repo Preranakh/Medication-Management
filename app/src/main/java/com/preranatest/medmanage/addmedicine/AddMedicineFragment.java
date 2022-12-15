@@ -299,93 +299,98 @@ public class AddMedicineFragment extends Fragment implements AddMedicineContract
             Calendar takeTime = Calendar.getInstance();
             Date date = takeTime.getTime();
             String dateString = new SimpleDateFormat("MMM d, yyyy", Locale.getDefault()).format(date);
+            /**This If Statement Prevents the Submission of a Medication with a Day Selected or no-name */
+            if(pill_name.length()>0 && (dayOfWeekList[0]==true || dayOfWeekList[1])==true || dayOfWeekList[2]==true || dayOfWeekList[3]==true || dayOfWeekList[4]==true || dayOfWeekList[5]==true || dayOfWeekList[6]==true ) {
+                /** Updating model */
+                MedicineAlarm alarm = new MedicineAlarm();
+                int alarmId = new Random().nextInt(100);
 
-            /** Updating model */
-            MedicineAlarm alarm = new MedicineAlarm();
-            int alarmId = new Random().nextInt(100);
+                /** If Pill does not already exist */
+                if (!mPresenter.isMedicineExits(pill_name)) {
+                    Pills pill = new Pills();
+                    pill.setPillName(pill_name);
+                    alarm.setDateString(dateString);
+                    alarm.setHour(hour);
+                    alarm.setMinute(minute);
+                    alarm.setPillName(pill_name);
+                    alarm.setDayOfWeek(dayOfWeekList);
+                    alarm.setDoseUnit(doseUnit);
+                    alarm.setDoseQuantity(doseQuantity);
+                    alarm.setAlarmId(alarmId);
+                    pill.addAlarm(alarm);
+                    long pillId = mPresenter.addPills(pill);
+                    pill.setPillId(pillId);
+                    mPresenter.saveMedicine(alarm, pill);
+                } else { // If Pill already exists
+                    Pills pill = mPresenter.getPillsByName(pill_name);
+                    alarm.setDateString(dateString);
+                    alarm.setHour(hour);
+                    alarm.setMinute(minute);
+                    alarm.setPillName(pill_name);
+                    alarm.setDayOfWeek(dayOfWeekList);
+                    alarm.setDoseUnit(doseUnit);
+                    alarm.setDoseQuantity(doseQuantity);
+                    alarm.setAlarmId(alarmId);
+                    pill.addAlarm(alarm);
+                    mPresenter.saveMedicine(alarm, pill);
+                }
 
-            /** If Pill does not already exist */
-            if (!mPresenter.isMedicineExits(pill_name)) {
-                Pills pill = new Pills();
-                pill.setPillName(pill_name);
-                alarm.setDateString(dateString);
-                alarm.setHour(hour);
-                alarm.setMinute(minute);
-                alarm.setPillName(pill_name);
-                alarm.setDayOfWeek(dayOfWeekList);
-                alarm.setDoseUnit(doseUnit);
-                alarm.setDoseQuantity(doseQuantity);
-                alarm.setAlarmId(alarmId);
-                pill.addAlarm(alarm);
-                long pillId = mPresenter.addPills(pill);
-                pill.setPillId(pillId);
-                mPresenter.saveMedicine(alarm, pill);
-            } else { // If Pill already exists
-                Pills pill = mPresenter.getPillsByName(pill_name);
-                alarm.setDateString(dateString);
-                alarm.setHour(hour);
-                alarm.setMinute(minute);
-                alarm.setPillName(pill_name);
-                alarm.setDayOfWeek(dayOfWeekList);
-                alarm.setDoseUnit(doseUnit);
-                alarm.setDoseQuantity(doseQuantity);
-                alarm.setAlarmId(alarmId);
-                pill.addAlarm(alarm);
-                mPresenter.saveMedicine(alarm, pill);
-            }
+                List<Long> ids = new LinkedList<>();
+                try {
+                    List<MedicineAlarm> alarms = mPresenter.getMedicineByPillName(pill_name);
+                    for (MedicineAlarm tempAlarm : alarms) {
+                        if (tempAlarm.getHour() == hour && tempAlarm.getMinute() == minute) {
+                            ids = tempAlarm.getIds();
+                            break;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-            List<Long> ids = new LinkedList<>();
-            try {
-                List<MedicineAlarm> alarms = mPresenter.getMedicineByPillName(pill_name);
-                for (MedicineAlarm tempAlarm : alarms) {
-                    if (tempAlarm.getHour() == hour && tempAlarm.getMinute() == minute) {
-                        ids = tempAlarm.getIds();
-                        break;
+                for (int i = 0; i < 7; i++) {
+                    if (dayOfWeekList[i] && pill_name.length() != 0) {
+
+                        int dayOfWeek = i + 1;
+                        long _id = ids.get(checkBoxCounter);
+                        int id = (int) _id;
+                        checkBoxCounter++;
+
+                        /** This intent invokes the activity ReminderActivity, which in turn opens the AlertAlarm window */
+                        Intent intent = new Intent(getActivity(), ReminderActivity.class);
+                        intent.putExtra(ReminderFragment.EXTRA_ID, _id);
+
+                        PendingIntent operation = PendingIntent.getActivity(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                        /** Getting a reference to the System Service ALARM_SERVICE */
+                        AlarmManager alarmManager = (AlarmManager) Objects.requireNonNull(getActivity()).getSystemService(ALARM_SERVICE);
+
+                        /** Creating a calendar object corresponding to the date and time set by the user */
+                        Calendar calendar = Calendar.getInstance();
+
+                        calendar.set(Calendar.HOUR_OF_DAY, hour);
+                        calendar.set(Calendar.MINUTE, minute);
+                        calendar.set(Calendar.SECOND, 0);
+                        calendar.set(Calendar.MILLISECOND, 0);
+                        calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek);
+
+                        /** Converting the date and time in to milliseconds elapsed since epoch */
+                        long alarm_time = calendar.getTimeInMillis();
+
+                        if (calendar.before(Calendar.getInstance()))
+                            alarm_time += AlarmManager.INTERVAL_DAY * 7;
+
+                        assert alarmManager != null;
+                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_time,
+                                AlarmManager.INTERVAL_DAY * 7, operation);
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                Toast.makeText(getContext(), "Alarm for " + pill_name + " is set successfully", Toast.LENGTH_SHORT).show();
+                showMedicineList();
             }
-
-            for (int i = 0; i < 7; i++) {
-                if (dayOfWeekList[i] && pill_name.length() != 0) {
-
-                    int dayOfWeek = i + 1;
-                    long _id = ids.get(checkBoxCounter);
-                    int id = (int) _id;
-                    checkBoxCounter++;
-
-                    /** This intent invokes the activity ReminderActivity, which in turn opens the AlertAlarm window */
-                    Intent intent = new Intent(getActivity(), ReminderActivity.class);
-                    intent.putExtra(ReminderFragment.EXTRA_ID, _id);
-
-                    PendingIntent operation = PendingIntent.getActivity(getActivity(), id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-                    /** Getting a reference to the System Service ALARM_SERVICE */
-                    AlarmManager alarmManager = (AlarmManager) Objects.requireNonNull(getActivity()).getSystemService(ALARM_SERVICE);
-
-                    /** Creating a calendar object corresponding to the date and time set by the user */
-                    Calendar calendar = Calendar.getInstance();
-
-                    calendar.set(Calendar.HOUR_OF_DAY, hour);
-                    calendar.set(Calendar.MINUTE, minute);
-                    calendar.set(Calendar.SECOND, 0);
-                    calendar.set(Calendar.MILLISECOND, 0);
-                    calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek);
-
-                    /** Converting the date and time in to milliseconds elapsed since epoch */
-                    long alarm_time = calendar.getTimeInMillis();
-
-                    if (calendar.before(Calendar.getInstance()))
-                        alarm_time += AlarmManager.INTERVAL_DAY * 7;
-
-                    assert alarmManager != null;
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_time,
-                            AlarmManager.INTERVAL_DAY * 7, operation);
-                }
+            else{
+                Toast.makeText(getContext(), "Please Fully Complete Form Before Submission", Toast.LENGTH_SHORT).show();
             }
-            Toast.makeText(getContext(), "Alarm for " + pill_name + " is set successfully", Toast.LENGTH_SHORT).show();
-            showMedicineList();
         }
     };
 }

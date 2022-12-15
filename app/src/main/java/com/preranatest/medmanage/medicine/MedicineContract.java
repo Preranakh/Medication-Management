@@ -1,4 +1,4 @@
-package com.preranatest.medmanage;
+package com.preranatest.medmanage.medicine;
 
 import android.content.Context;
 

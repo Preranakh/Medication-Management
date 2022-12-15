@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.preranatest.medmanage.MedicineActivity;
+import com.preranatest.medmanage.medicine.MedicineActivity;
 import com.preranatest.medmanage.R;
 import com.preranatest.medmanage.data.source.History;
 import com.preranatest.medmanage.data.source.MedicineAlarm;

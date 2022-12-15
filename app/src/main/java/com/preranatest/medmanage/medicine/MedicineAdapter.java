@@ -1,4 +1,4 @@
-package com.preranatest.medmanage;
+package com.preranatest.medmanage.medicine;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;

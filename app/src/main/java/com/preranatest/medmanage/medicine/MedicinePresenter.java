@@ -1,4 +1,4 @@
-package com.preranatest.medmanage;
+package com.preranatest.medmanage.medicine;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -15,6 +15,8 @@ import com.preranatest.medmanage.alarm.ReminderFragment;
 import com.preranatest.medmanage.data.source.MedicineAlarm;
 import com.preranatest.medmanage.data.source.MedicineDataSource;
 import com.preranatest.medmanage.data.source.MedicineRepository;
+import com.preranatest.medmanage.medicine.MedicineContract;
+import com.preranatest.medmanage.medicine.MedicineFragment;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,10 +32,10 @@ public class MedicinePresenter implements MedicineContract.Presenter {
 
     private final MedicineRepository mMedicineRepository;
 
-    private final MedicineContract.View mMedView;
+    private final MedicineFragment mMedView;
 
 
-    MedicinePresenter(@NonNull MedicineRepository medicineRepository, @NonNull MedicineContract.View medView) {
+    public MedicinePresenter(@NonNull MedicineRepository medicineRepository, @NonNull MedicineFragment medView) {
         this.mMedicineRepository = medicineRepository;
         this.mMedView = medView;
         medView.setPresenter(this);
