@@ -11,3 +11,15 @@ Some of the Features are:
 - Take notes and Communicate with the people they are caring for
 - Get more knowledge about being a caregiver
 
+How to Run the app
+
+- Just clone the repo and you can run it from your local machine.
+- Open the folder in android studio
+- Choose appropriate emulator, for this we have used Pixel 31 API arm64-v8a
+- Make sure appropriate jdk version is used for the project
+- Install the packages if any issues and let the gradle build
+- Hit the green button for run from the top menu and you are all set to go.
+
+References Used
+
+
