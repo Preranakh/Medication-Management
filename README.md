@@ -4,7 +4,12 @@ The project involves creating an app that helps a user to track the dosages take
 
 Medication Management is a medicine reminder app designed for people who frequently forget to take their medications. It allows you to keep track of and remotely assist your loved ones who find it difficult to utilize such an app with their reminders.
 
-Some of the Features are:
+Features of the app
+
+Task1:Entering routine Information
+Task2:Tracking Dosages
+Task3:Scanning Prescription
+
 - Track medications for multiple people.
 - Get notifications for late/missed medications.
 - Keep contact information for patients, nurses, doctors, neighbors, etc.
