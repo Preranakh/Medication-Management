@@ -13,6 +13,8 @@ Task2:Tracking Dosages
 
 Task3:Scanning Prescription
 
+# Other Features Planned for the Next Iteration
+
 - Track medications for multiple people.
 - Get notifications for late/missed medications.
 - Keep contact information for patients, nurses, doctors, neighbors, etc.
