@@ -7,7 +7,9 @@ Medication Management is a medicine reminder app designed for people who frequen
 Features of the app
 
 Task1:Entering routine Information
+
 Task2:Tracking Dosages
+
 Task3:Scanning Prescription
 
 - Track medications for multiple people.
