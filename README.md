@@ -48,6 +48,8 @@ https://drive.google.com/file/d/1VcUGe-YensQws7sifTHlBYGZSS5s8wZp/view?usp=shari
 # Appendix
 
 ### Interactive Design: Prototype Link of mid-fi prototype on Figma:
+https://www.figma.com/file/NnWrqEmowEV80p0PquXivv/Untitled?node-id=0%3A1&t=ywDfsQu302VEvbtb-1
+https://www.figma.com/file/o7LHjHd3ZrsiNNJm72TNwy/Tracking-Dosage?node-id=0%3A1&t=uKOeJ6FaF3ppEzis-1
 
 
 ## All reports, slides, and raw files drive link
