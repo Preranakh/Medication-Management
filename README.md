@@ -1,3 +1,4 @@
+# About the App
 Taking medicine on Time is important. Most of the people or older people who generally forget most of the things, also forget to take medicine on time.
 To keep track on different kinds of medical prescriptions, it is important that some kind of system is used to manage all of them so that no dosages will be missed which could cause medical complications. This is especially true among the elderly. Thus creating such a system that could automate this process could easily benefit them as well as those who are involved such as the caretakers. This system should also be useful to any kind of user. 
 The project involves creating an app that helps a user to track the dosages taken per day of a particular medicine. Prescriptions can also be added manually. This app lets caregivers get real-time updates on their patients' medications and symptoms.
@@ -18,7 +19,7 @@ Task3:Scanning Prescription
 - Take notes and Communicate with the people they are caring for
 - Get more knowledge about being a caregiver
 
-How to Run the app
+# How to Run the App
 
 - Just clone the repo and you can run it from your local machine.
 - Open the folder in android studio
@@ -31,7 +32,7 @@ How to Run the app
 
 https://drive.google.com/file/d/1VcUGe-YensQws7sifTHlBYGZSS5s8wZp/view?usp=sharing
 
-References Used
+# References
 - https://uxplanet.org/remedi-a-medication-reminder-app-ui-ux-case-study-8de1fe494f27
 - https://ashwindinesh.medium.com/ux-case-study-medication-reminder-app-3834c35bb8ce
 - HelpGuide.org. (n.d.). Https://Www.helpguide.org. Retrieved October 10, 2022, from https://www.helpguide.org/articles/stress/caregiver-stress-and-burnout.html
@@ -44,4 +45,10 @@ References Used
 - Tabi, K., Randhawa, A. S., Choi, F., Mithani, Z., Albers, F., Schnieder, M., Nikoo, M., Vigo, D., Jang, K., Demlova, R., & Krausz, M. (2019). Mobile Apps for Medication Management: Review and Analysis. JMIR MHealth and UHealth, 7(9), e13608. https://doi.org/10.2196/13608
 
 
+# Appendix
 
+### Interactive Design: Prototype Link of mid-fi prototype on Figma:
+
+
+## All reports, slides, and raw files drive link
+https://drive.google.com/drive/folders/1LWIzd2ZW6j9o-R5isi3Vj_VIp04bjtrP?usp=sharing
