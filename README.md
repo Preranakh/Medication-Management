@@ -25,6 +25,10 @@ How to Run the app
 - Install the packages if any issues and let the gradle build
 - Hit the green button for run from the top menu and you are all set to go.
 
+# How to use the app: Video link:
+
+https://drive.google.com/file/d/1VcUGe-YensQws7sifTHlBYGZSS5s8wZp/view?usp=sharing
+
 References Used
 - https://uxplanet.org/remedi-a-medication-reminder-app-ui-ux-case-study-8de1fe494f27
 - https://ashwindinesh.medium.com/ux-case-study-medication-reminder-app-3834c35bb8ce
